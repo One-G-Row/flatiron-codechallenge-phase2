@@ -1,8 +1,10 @@
 
-function ListTable({details}){
+
+function ListTable({details, addObj}){
+
 return(
-<div className="table">
-<table>
+<div className="table" >
+<table> 
     <thead>
     <tr>
     <th>Date</th>
@@ -20,6 +22,11 @@ return(
     <td>{detail.amount}</td>
 </tr>
 })}
+</tbody>
+<tbody>
+<tr>
+    <td>{addObj}</td>
+</tr>
 </tbody>
 
 </table>

@@ -1,13 +1,17 @@
 /* import './App.css'; */
+import React,{useState} from "react"
 import ListTable from "./ListTable";
+import Form from "./Form"
 import detailsData from "../transactions"
 
 
 function App() {
-  //console.log(detailsData)
+  const [transaction, setTransaction] = useState([])
+
   return (
     <div className="App">
-      <ListTable details={detailsData}/>
+      <Form transaction={transaction} setTransaction={setTransaction}/>
+      <ListTable details={detailsData} addObj={transaction}/>
     </div>
   );
 }
