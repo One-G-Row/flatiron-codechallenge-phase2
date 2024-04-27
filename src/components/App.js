@@ -1,11 +1,13 @@
-
 /* import './App.css'; */
-import ListTables from "./ListTables"
+import ListTable from "./ListTable";
+import detailsData from "../transactions"
+
 
 function App() {
+  //console.log(detailsData)
   return (
     <div className="App">
-      <ListTables />
+      <ListTable details={detailsData}/>
     </div>
   );
 }
