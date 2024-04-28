@@ -1,8 +1,21 @@
-import React,{useState} from "react"
-function Sort({userData}){
-const [sortedData, setSortedData] = useState([])
-function sortAlphabetically(){
+import React, { useState } from "react";
+import detailsData from "../transactions";
+function Sort({ userData }) {
+ 
+const getDescription = detailsData.map(data =>{
+    return data.description
+  })
 
+  const getCategories = detailsData.map(data =>{
+    return data.categories
+  })
+ 
+  return (
+    <div>
+        <p>{getCategories}</p>
+        <p>{getDescription}</p>
+      <button className="sort">sort</button>
+    </div>
+  );
 }
-}
-export default Sort
+export default Sort;
