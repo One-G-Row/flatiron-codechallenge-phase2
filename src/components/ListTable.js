@@ -3,6 +3,7 @@ import React, { useState } from "react";
 function ListTable({ details, addObjs, input }) {
   const [results, setResults] = useState("");
 
+  //conditions set to filter table data by date, category, description and amount
   function filterTransactions() {
     const filterDetails = details.map((detail) => {
       if (input.includes(detail.category)) {
@@ -29,17 +30,8 @@ function ListTable({ details, addObjs, input }) {
 
     setResults(filterDetails);
   }
-  console.log(results);
+ 
 
-  function extractProperties() {
-    const data = {
-      date: results.date,
-      descrition: results.description,
-      category: results.category,
-      amount: results.amount,
-    };
-  }
-  console.log(extractProperties());
   return (
     <div className="table">
       <button className="search" onClick={filterTransactions}>
@@ -57,7 +49,10 @@ function ListTable({ details, addObjs, input }) {
         <tbody>
           {results ? (
             <tr>
-            <td>{results}</td>
+              <td>{results}</td>
+              {/* <td>{data.description}</td>
+            <td>{data.category}</td>
+            <td>{data.amount}</td> */}
             </tr>
           ) : (
             details.map((detail, index) => (
@@ -78,22 +73,8 @@ function ListTable({ details, addObjs, input }) {
               </tr>
             );
           })}
-
-          {/* <tr>
-<td>{addObjs}</td>
-</tr>  */}
-
-          {/* {addObj.map((obj, index)=>{
-<tr key={index}>
-<td>{addObj}</td>
-    <td>{addObj}</td>
-    <td>{addObj}</td>
-    <td>{addObj}</td>
-</tr>
-})} */}
         </tbody>
       </table>
-      {/* <p>{results}</p> */}
     </div>
   );
 }
