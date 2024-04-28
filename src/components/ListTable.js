@@ -2,27 +2,46 @@ import React, { useState } from "react";
 
 function ListTable({ details, addObjs, input }) {
   const [results, setResults] = useState("");
- 
+
   function filterTransactions() {
     const filterDetails = details.map((detail) => {
       if (input.includes(detail.category)) {
-        return detail.date + detail.description + detail.category + detail.amount;
+        return (
+          detail.date + detail.description + detail.category + detail.amount
+        );
+      }
+      if (input.includes(detail.description)) {
+        return (
+          detail.date + detail.description + detail.category + detail.amount
+        );
+        
+      }
+      if (input.includes(detail.amount)) {
+        return (
+          detail.date + detail.description + detail.category + detail.amount
+        );
+      }
+      if (input.includes(detail.date)) {
+        return (
+          detail.date + detail.description + detail.category + detail.amount
+        );
+        
       }
     });
+   
     setResults(filterDetails);
   }
   console.log(results);
 
-
   function extractProperties() {
-const data = {
-    date:results.date,
-    descrition:results.description,
-    category:results.category,
-    amount:results.amount
-    }
+    const data = {
+      date: results.date,
+      descrition: results.description,
+      category: results.category,
+      amount: results.amount,
+    };
   }
-  console.log(extractProperties())
+  console.log(extractProperties());
   return (
     <div className="table">
       <button onClick={filterTransactions}>Search </button>
