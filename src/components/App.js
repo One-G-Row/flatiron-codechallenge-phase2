@@ -1,8 +1,9 @@
- import '../App.css'; 
+import "../App.css";
 import React, { useState } from "react";
 import Header from "./Header";
 import ListTable from "./ListTable";
 import Form from "./Form";
+import Sort from "./Sort";
 import detailsData from "../transactions";
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         input={input}
         setInput={setInput}
       />
+      <Sort />
     </div>
   );
 }
