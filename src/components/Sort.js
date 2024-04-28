@@ -1,24 +1,26 @@
 import React, { useState } from "react";
 import detailsData from "../transactions";
 function Sort() {
- const [sortedDescription, setSortedDescription] = useState([])
- const [sortedCategory, setSortedCategory] = useState([])
- 
-const getDescription = detailsData.map(data =>{
-    return data.description
-  })
+  const [sortedData, setSortedData] = useState([]);
 
-  const getCategories = detailsData.map(data =>{
-    return data.categories
-  })
+  function handleSorting() {
+    const sortArray = [...detailsData];
+    const sortData = sortArray.sort((a, b) => {
+      return (
+        a.category.localeCompare(b.category) ||
+        a.description.localeCompare(b.description)
+      );
+    });
+    setSortedData(sortData);
+  }
+  console.log(sortedData);
  
-
 
   return (
     <div>
-        <p>{getCategories}</p>
-        <p>{getDescription}</p>
-      <button className="sort">sort</button>
+      <button className="sort" onClick={handleSorting}>
+        sort
+      </button>
     </div>
   );
 }
