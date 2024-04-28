@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 
-function Header({ userDetails, transactions }) {
-  const [input, setInput] = useState([]);
+function Header({ userDetails, transactions, input, setInput }) {
+  
   const [filterBy, setFilterBy] = useState(userDetails);
   const [results, setResults] = useState([]);
 
-  console.log(input);
+  /*   console.log(input);
   console.log(results);
-  console.log(filterBy);
+  console.log(filterBy); */
 
   function updateFilterBy() {
     const transactionalArray = [...filterBy, transactions];
@@ -18,21 +18,28 @@ function Header({ userDetails, transactions }) {
     setInput(e.target.value);
   }
 
+  const userDetailsValues = Object.values(userDetails);
+  const userDetailsArray = [userDetailsValues];
+ /*  console.log(userDetailsArray) */;
+  //console.log(userDetailsValues )
+  
   function filterTransaction() {
-    userDetails.filter((input) => {
-      if (filterBy === input) {
-        setResults(userDetails);
-      } else {
-        setResults("none");
+    const filterResults = userDetailsArray.filter((userDetail) => {
+      //userDetail.includes(input)
+      {
+        if (userDetail.includes(input)) {
+          return userDetail;
+        }
       }
-      /*  userDetail === filterBy */
+      /*  userDetail.includes(input) */
     });
+    setResults(filterResults);
+    console.log(filterResults);
   }
+ /*  console.log(results); */
 
   function filteredResult() {
-    {
-      results.map((result) => <li key={result.id}>{result}</li>);
-    }
+    return results.map((result) => <li key={result.id}>{result}</li>);
   }
 
   return (
@@ -40,9 +47,7 @@ function Header({ userDetails, transactions }) {
       <h1>Bank of FlatIron</h1>
       <input type="text" onChange={handleInput} value={input} />
       <button onClick={filterTransaction}>Search </button>
-      <ul>
-        {filteredResult}
-      </ul>
+      <ul>{filteredResult}</ul>
       <p>{results}</p>
       {updateFilterBy}
     </div>
