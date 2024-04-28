@@ -75,7 +75,9 @@ function Form({ transaction, setTransaction }) {
           value={amount}
         />
       </label>
-      <button onClick={addTransaction}>Add Transaction</button>
+      <button className="add" onClick={addTransaction}>
+        Add Transaction
+      </button>
     </form>
   );
 }
