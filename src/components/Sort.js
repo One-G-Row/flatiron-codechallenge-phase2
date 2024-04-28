@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import detailsData from "../transactions";
+
 function Sort() {
   const [sortedData, setSortedData] = useState([]);
 
@@ -14,13 +15,26 @@ function Sort() {
     setSortedData(sortData);
   }
   console.log(sortedData);
- 
+  const mapObj = sortedData.map((data, index) => {
+    return (
+      <li key={index}>
+        {data.category} - {data.description}
+      </li>
+    );
+  });
+  console.log(mapObj);
+  //const sortedArray = [...mapObj];
 
   return (
     <div>
       <button className="sort" onClick={handleSorting}>
         sort
       </button>
+      <p>{sortedData}</p>
+      <ul>
+        {mapObj}
+        {/*  <li>{sortedData}</li> */}
+      </ul>
     </div>
   );
 }
