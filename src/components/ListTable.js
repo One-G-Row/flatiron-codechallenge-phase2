@@ -50,6 +50,7 @@ function ListTable({ details, addObjs, input }) {
           </tr>
         </thead>
         <tbody>
+          {/* ternary operator to compare input and the data present */}
           {results ? (
             <tr>
               <td>{results}</td>
