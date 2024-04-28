@@ -37,9 +37,11 @@
   }
 } */
 .heading {
-  text-align: center;
+  position: relative;
+  left: 38%;
+  top: 2%;
   color: white;
-  padding-top: 20px;
+  text-align: center;
 }
 .nav {
   width: 100%;
@@ -47,8 +49,11 @@
   background-color: green;
 }
 .input {
+  position: relative;
+  top: 70px;
+  right: 15%;
   width: 70%;
-  height: 30px;
+  height: 40px;
   margin-left: 80px;
   padding: 0 40px;
   font-weight: bold;
@@ -56,8 +61,8 @@
 }
 .search {
   position: absolute;
-  top: 95px;
-  right: 330px;
+  top: 75px;
+  right: 270px;
   background: none;
   border: none;
 }
@@ -73,7 +78,7 @@ img {
 .category,
 .amount {
   width: 200px;
-  height: 30px;
+  height: 35px;
   text-align: center;
   border: 2px green solid;
   border-radius: 5px;
@@ -89,14 +94,14 @@ label {
 }
 
 .add {
-  width: 150px;
-  height: 40px;
+  width: 200px;
+  height: 45px;
   display: flex;
   margin-top: 14px;
   margin-left: 40%;
   border-radius: 3px;
   border: none;
-  padding: 12px 20px;
+  padding: 10px 10px 10px 40px;
   font-weight: bold;
   background: rgb(38, 209, 38);
   color: white;
