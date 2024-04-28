@@ -1,6 +1,6 @@
 
 
-function ListTable({details, addObj}){
+function ListTable({details, addObjs}){
 
 return(
 <div className="table" >
@@ -22,11 +22,29 @@ return(
     <td>{detail.amount}</td>
 </tr>
 })}
-</tbody>
-<tbody>
-<tr>
+
+{/* adding the new transaction to the list table */}
+{addObjs.map((addObj) => { 
+  return <tr key={addObj.id}>
+  <td>{addObj}</td>
+  </tr> 
+    
+ })} 
+ 
+
+{/* <tr>
+<td>{addObjs}</td>
+</tr>  */}
+
+{/* {addObj.map((obj, index)=>{
+<tr key={index}>
+<td>{addObj}</td>
+    <td>{addObj}</td>
+    <td>{addObj}</td>
     <td>{addObj}</td>
 </tr>
+})} */}
+
 </tbody>
 
 </table>

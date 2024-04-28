@@ -9,6 +9,7 @@ const [category, setCategory] = useState("deposit")
 const [amount, setAmount] = useState(300000)
 
 
+
 function handlerDate(e){
   setDate(e.target.value)  
 }

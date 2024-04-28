@@ -1,20 +1,51 @@
-import React,{useState} from "react"
+import React, { useState } from "react";
 
-function Header(){
-const [input, setInput] = useState()
+function Header({ userDetails, transactions }) {
+  const [input, setInput] = useState([]);
+  const [filterBy, setFilterBy] = useState(userDetails);
+  const [results, setResults] = useState([]);
 
-function handleInput(e){
-setInput(e.target.value)
+  console.log(input);
+  console.log(results);
+  console.log(filterBy);
+
+  function updateFilterBy() {
+    const transactionalArray = [...filterBy, transactions];
+    setFilterBy(transactionalArray);
+  }
+
+  function handleInput(e) {
+    setInput(e.target.value);
+  }
+
+  function filterTransaction() {
+    userDetails.filter((input) => {
+      if (filterBy === input) {
+        setResults(userDetails);
+      } else {
+        setResults("none");
+      }
+      /*  userDetail === filterBy */
+    });
+  }
+
+  function filteredResult() {
+    {
+      results.map((result) => <li key={result.id}>{result}</li>);
+    }
+  }
+
+  return (
+    <div>
+      <h1>Bank of FlatIron</h1>
+      <input type="text" onChange={handleInput} value={input} />
+      <button onClick={filterTransaction}>Search </button>
+      <ul>
+        {filteredResult}
+      </ul>
+      <p>{results}</p>
+      {updateFilterBy}
+    </div>
+  );
 }
-
-console.log(input)
-
-return(
-<div>
-<h1>Bank of FlatIron</h1>
-<input type="text" onChange={handleInput}/>
-</div> 
-)
-
-}
-export default Header
+export default Header;
