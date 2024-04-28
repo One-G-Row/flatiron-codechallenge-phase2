@@ -31,12 +31,14 @@ function ListTable({ details, addObjs, input }) {
     setResults(filterDetails);
   }
  
-
+  const imagePath ="../search-64.webp"
+  const altText = "search"
   return (
     <div className="table">
       <button className="search" onClick={filterTransactions}>
-        Search{" "}
+      <img src={imagePath} alt={altText}/>
       </button>
+      
       <table onClick={filterTransactions}>
         <thead>
           <tr>
