@@ -1,5 +1,8 @@
 import React,{useState} from "react"
-function Sort({transactions}){
-console.log(transactions)
+function Sort({userData}){
+const [sortedData, setSortedData] = useState([])
+function sortAlphabetically(){
+
+}
 }
 export default Sort
