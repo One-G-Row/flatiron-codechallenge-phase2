@@ -25,7 +25,7 @@ function App() {
         input={input}
         setInput={setInput}
       />
-      <Sort userData={detailsData} />
+      <Sort />
     </div>
   );
 }

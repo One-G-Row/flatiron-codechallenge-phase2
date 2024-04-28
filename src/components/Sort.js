@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import detailsData from "../transactions";
-function Sort({ userData }) {
+function Sort() {
+ const [sortedDescription, setSortedDescription] = useState([])
+ const [sortedCategory, setSortedCategory] = useState([])
  
 const getDescription = detailsData.map(data =>{
     return data.description
@@ -10,6 +12,8 @@ const getDescription = detailsData.map(data =>{
     return data.categories
   })
  
+
+
   return (
     <div>
         <p>{getCategories}</p>
