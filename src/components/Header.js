@@ -31,12 +31,12 @@ function Header({ userDetails, transactions, input, setInput }) {
           return userDetail;
         }
       }
-      /*  userDetail.includes(input) */
+
     });
     setResults(filterResults);
     console.log(filterResults);
   }
- /*  console.log(results); */
+ 
 
   function filteredResult() {
     return results.map((result) => <li key={result.id}>{result}</li>);
@@ -46,7 +46,6 @@ function Header({ userDetails, transactions, input, setInput }) {
     <div>
       <h1>Bank of FlatIron</h1>
       <input type="text" onChange={handleInput} value={input} />
-      <button onClick={filterTransaction}>Search </button>
       <ul>{filteredResult}</ul>
       <p>{results}</p>
       {updateFilterBy}

@@ -14,7 +14,6 @@ function ListTable({ details, addObjs, input }) {
         return (
           detail.date + detail.description + detail.category + detail.amount
         );
-        
       }
       if (input.includes(detail.amount)) {
         return (
@@ -25,10 +24,9 @@ function ListTable({ details, addObjs, input }) {
         return (
           detail.date + detail.description + detail.category + detail.amount
         );
-        
       }
     });
-   
+
     setResults(filterDetails);
   }
   console.log(results);
@@ -44,8 +42,10 @@ function ListTable({ details, addObjs, input }) {
   console.log(extractProperties());
   return (
     <div className="table">
-      <button onClick={filterTransactions}>Search </button>
-      <table>
+      <button className="search" onClick={filterTransactions}>
+        Search{" "}
+      </button>
+      <table onClick={filterTransactions}>
         <thead>
           <tr>
             <th>Date</th>
@@ -55,16 +55,20 @@ function ListTable({ details, addObjs, input }) {
           </tr>
         </thead>
         <tbody>
-          {details.map((detail, index) => {
-            return (
+          {results ? (
+            <tr>
+            <td>{results}</td>
+            </tr>
+          ) : (
+            details.map((detail, index) => (
               <tr key={index}>
                 <td>{detail.date}</td>
                 <td>{detail.description}</td>
                 <td>{detail.category}</td>
                 <td>{detail.amount}</td>
               </tr>
-            );
-          })}
+            ))
+          )}
 
           {/* adding the new transaction to the list table */}
           {addObjs.map((addObj) => {
@@ -89,7 +93,7 @@ function ListTable({ details, addObjs, input }) {
 })} */}
         </tbody>
       </table>
-      <p>{results}</p>
+      {/* <p>{results}</p> */}
     </div>
   );
 }
