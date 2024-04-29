@@ -22,7 +22,7 @@
   font-size: 14pt;
 }
 .search {
-  position: absolute;
+  position: fixed;
   top: 75px;
   right: 270px;
   background: none;
@@ -68,6 +68,29 @@ label {
   background: rgb(38, 209, 38);
   color: white;
 }
+/* Default styles */
+.my-element {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+
+/* Tablet styles */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .my-element {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 767px) {
+  .my-element {
+    width: 50px;
+    height: 50px;
+  }
+}
+
 /* #sortTable{
   display:none; 
 } */
