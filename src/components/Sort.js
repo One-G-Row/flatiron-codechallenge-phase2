@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import detailsData from "../transactions";
+import ListTable from "./ListTable";
 
 function Sort() {
-  const [sortedData, setSortedData] = useState([]);
+  const [sortedData, setSortedData] = useState(detailsData);
 
   function handleSorting() {
     const sortArray = [...detailsData];
@@ -18,10 +19,14 @@ function Sort() {
   const mapObj = sortedData.map((data, index) => {
     return (
       <li key={index}>
-        {data.category} - {data.description}
+        {data.date}
+        {data.category}
+        {data.description}
+        {data.amount}
       </li>
     );
   });
+
   console.log(mapObj);
   //const sortedArray = [...mapObj];
 
@@ -30,11 +35,11 @@ function Sort() {
       <button className="sort" onClick={handleSorting}>
         sort
       </button>
-      <p>{sortedData}</p>
-      <ul>
-        {mapObj}
-        {/*  <li>{sortedData}</li> */}
-      </ul>
+      <table>
+      <tr>
+      <td>{mapObj}</td>
+      </tr>
+      </table>
     </div>
   );
 }

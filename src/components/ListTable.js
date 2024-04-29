@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function ListTable({ details, addObjs, input }) {
+function ListTable({ details, addObjs, input, onSort}) {
+  console.log(onSort)
+  
   const [results, setResults] = useState("");
 
   //conditions set to filter table data by date, category, description and amount
