@@ -18,12 +18,12 @@ function Sort() {
   console.log(sortedData);
   const mapObj = sortedData.map((data, index) => {
     return (
-      <li key={index}>
-        {data.date}
-        {data.category}
-        {data.description}
-        {data.amount}
-      </li>
+      <tr key={index}>
+        <td>{data.date}</td>
+        <td>{data.category}</td>
+        <td>{data.description}</td>
+        <td>{data.amount}</td>
+      </tr>
     );
   });
 
@@ -35,10 +35,14 @@ function Sort() {
       <button className="sort" onClick={handleSorting}>
         sort
       </button>
-      <table>
-      <tr>
-      <td>{mapObj}</td>
-      </tr>
+      <table className="table table-hover">
+        <thead>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Amount</th>
+        </thead>
+        <tbody>{mapObj}</tbody>
       </table>
     </div>
   );
