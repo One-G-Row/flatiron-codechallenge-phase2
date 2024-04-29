@@ -35,7 +35,7 @@ function Sort() {
       <button className="sort" onClick={handleSorting}>
         sort
       </button>
-      <table className="table table-hover">
+      <table id="sortTable" className="table table-hover">
         <thead>
           <th>Date</th>
           <th>Description</th>
